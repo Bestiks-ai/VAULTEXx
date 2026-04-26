@@ -1,0 +1,95 @@
+{% extends "layouts/base.twig" %}
+
+{% block title %}{{ lang('login.title') }} — Vaultex{% endblock %}
+
+{% block body %}
+<div class="auth-page">
+  <div class="auth-container">
+    <div class="auth-card">
+      <div class="auth-header">
+        <a href="/" class="auth-logo">
+          <img src="/assets/images/logo.svg" alt="Vaultex" width="140">
+        </a>
+        <h1>{{ lang('login.title') }}</h1>
+      </div>
+
+      {% if flash_error is defined and flash_error %}
+        <div class="flash flash--error">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          {{ flash_error }}
+        </div>
+      {% endif %}
+
+      <form method="POST" action="/login" class="auth-form">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        
+        <div class="form-group">
+          <label class="form-label" for="email">{{ lang('login.email') }}</label>
+          <input type="email" id="email" name="email" class="form-input" required placeholder="name@example.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">{{ lang('login.password') }}</label>
+          <input type="password" id="password" name="password" class="form-input" required placeholder="••••••••">
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">
+          {{ lang('login.submit') }}
+        </button>
+      </form>
+
+      <p class="auth-footer text-center mt-3">
+        <a href="/register">{{ lang('login.register') }}</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg-primary);
+}
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+}
+.auth-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+}
+.auth-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.auth-logo {
+  display: inline-block;
+  margin-bottom: 24px;
+}
+.auth-logo img {
+  width: 140px;
+  height: auto;
+}
+.auth-header h1 {
+  font-size: 28px;
+  color: var(--text-primary);
+}
+.auth-footer {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+.auth-footer a {
+  color: var(--accent-blue);
+}
+</style>
+{% endblock %}

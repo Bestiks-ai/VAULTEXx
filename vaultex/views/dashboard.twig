@@ -1,0 +1,171 @@
+{% extends "layouts/base.twig" %}
+
+{% block title %}{{ lang('nav.dashboard') }} — Vaultex{% endblock %}
+
+{% block body %}
+<!-- Sidebar (Desktop) -->
+<aside class="sidebar">
+  <div class="sidebar__header">
+    <a href="/" class="sidebar__logo">
+      <img src="/assets/images/logo.svg" alt="Vaultex" width="120">
+    </a>
+  </div>
+  <nav class="sidebar__nav">
+    <a href="/dashboard" class="sidebar__link active">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      {{ lang('nav.dashboard') }}
+    </a>
+    <a href="/wallet" class="sidebar__link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      {{ lang('nav.wallet') }}
+    </a>
+    <a href="/deposit" class="sidebar__link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 16 16 12"/></svg>
+      {{ lang('nav.deposit') }}
+    </a>
+    <a href="/withdraw" class="sidebar__link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 16 12 8 8 12"/></svg>
+      {{ lang('nav.withdraw') }}
+    </a>
+    <a href="/p2p" class="sidebar__link sidebar__link--soon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      {{ lang('nav.p2p') }}
+      <span class="label label--soon">Soon</span>
+    </a>
+    <a href="/history" class="sidebar__link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      {{ lang('nav.history') }}
+    </a>
+  </nav>
+  <div class="sidebar__footer">
+    <a href="/settings" class="sidebar__link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      {{ lang('nav.settings') }}
+    </a>
+    <a href="/logout" class="sidebar__link sidebar__link--danger">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+      {{ lang('nav.logout') }}
+    </a>
+  </div>
+</aside>
+
+<!-- Main Content -->
+<main class="main-content">
+  <div class="container py-5">
+    <div class="dashboard-header mb-4">
+      <h1>{{ lang('nav.dashboard') }}</h1>
+      <p class="text-secondary">{{ user_email }}</p>
+    </div>
+
+    <!-- Balance Cards -->
+    <div class="grid grid--3 mb-4">
+      <div class="card balance-card">
+        <div class="balance-card__label">{{ lang('dashboard.balance') }}</div>
+        <div class="balance-card__value">$0.00</div>
+        <div class="balance-card__actions">
+          <a href="/deposit" class="btn btn--primary btn--sm">{{ lang('dashboard.deposit') }}</a>
+          <a href="/withdraw" class="btn btn--secondary btn--sm">{{ lang('dashboard.withdraw') }}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state text-center py-5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="var(--text-muted)" stroke-width="1" class="mb-3"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      <h3 class="mb-2">У вас пока нет кошельков</h3>
+      <p class="text-muted mb-4">Создайте свой первый кошелёк для начала работы</p>
+      <a href="/wallet/create" class="btn btn--primary">Создать кошелёк</a>
+    </div>
+  </div>
+</main>
+
+<!-- Bottom Navigation (Mobile) -->
+<nav class="bottom-nav">
+  <a href="/dashboard" class="bottom-nav__item active">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>{{ lang('nav.dashboard') }}</span>
+  </a>
+  <a href="/wallet" class="bottom-nav__item">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+    <span>{{ lang('nav.wallet') }}</span>
+  </a>
+  <a href="/deposit" class="bottom-nav__item">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 16 16 12"/></svg>
+    <span>{{ lang('nav.deposit') }}</span>
+  </a>
+  <a href="/withdraw" class="bottom-nav__item">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 16 12 8 8 12"/></svg>
+    <span>{{ lang('nav.withdraw') }}</span>
+  </a>
+  <button class="bottom-nav__item" id="mobile-menu-btn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <span>Ещё</span>
+  </button>
+</nav>
+{% endblock %}
+
+{% block styles %}
+<style>
+.sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: var(--sidebar-width);
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+.sidebar__header { padding: 24px; border-bottom: 1px solid var(--border); }
+.sidebar__logo img { height: 32px; width: auto; }
+.sidebar__nav { flex: 1; padding: 16px 0; overflow-y: auto; }
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+.sidebar__link:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+.sidebar__link.active { background: var(--accent-blue-dim); color: var(--accent-blue); border-right: 2px solid var(--accent-blue); }
+.sidebar__link--soon { opacity: 0.6; }
+.sidebar__link--danger { color: var(--accent-red); }
+.sidebar__link--danger:hover { background: rgba(239, 68, 68, 0.1); }
+.sidebar__footer { padding: 16px 0; border-top: 1px solid var(--border); }
+.main-content { margin-left: var(--sidebar-width); min-height: 100vh; background: var(--bg-primary); }
+.bottom-nav { display: none; }
+.label--soon { font-size: 10px; padding: 4px 8px; margin-left: auto; }
+.balance-card__label { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; }
+.balance-card__value { font-size: 36px; font-weight: 700; font-family: 'Sora', sans-serif; margin-bottom: 16px; }
+.balance-card__actions { display: flex; gap: 8px; }
+.btn--sm { padding: 8px 16px; font-size: 14px; }
+.empty-state svg { opacity: 0.5; }
+.py-5 { padding: 80px 0; }
+
+@media (max-width: 1023px) {
+  .sidebar { display: none; }
+  .main-content { margin-left: 0; padding-bottom: var(--bottom-nav-h); }
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: var(--bottom-nav-h);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border);
+    z-index: 200;
+  }
+  .bottom-nav__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex: 1;
+    color: var(--text-muted);
+    font-size: 11px;
+  }
+  .bottom-nav__item.active { color: var(--accent-blue); }
+}
+</style>
+{% endblock %}

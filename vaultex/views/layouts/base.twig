@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Vaultex — Криптовалютный кошелёк и обменник{% endblock %}</title>
+  <meta name="description" content="{% block description %}Vaultex — безопасный криптовалютный сервис. Пополняйте, выводите, храните криптовалюту.{% endblock %}">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  {% block styles %}{% endblock %}
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% block og_title %}Vaultex — Your keys. Your future.{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Безопасный криптовалютный кошелёк нового поколения{% endblock %}">
+  <meta property="og:image" content="/assets/images/og-cover.jpg">
+  <meta property="og:type" content="website">
+  
+  {% block head_extra %}{% endblock %}
+</head>
+<body>
+  {% block body %}{% endblock %}
+  
+  {% block scripts %}{% endblock %}
+</body>
+</html>
